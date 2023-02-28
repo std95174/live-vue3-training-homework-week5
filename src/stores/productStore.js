@@ -26,6 +26,7 @@ export const productStore = defineStore('productStore', {
             const index = this.carts.findIndex(item => item.product_id === product.id)
             if(index !== -1) {
                 await this.updateCartItem(this.carts[index], this.carts[index].qty + amount)
+                product.isCartLoading = false
                 return
             }
             await axios.post(`${import.meta.env.VITE_API_URL}/cart`, {
