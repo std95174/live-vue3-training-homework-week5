@@ -20,7 +20,7 @@
       <div class="mb-3">
         <label for="tel" class="form-label">收件人電話</label>
         <v-field id="tel" name="電話" type="text" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
-                 placeholder="請輸入電話" rules="required|numeric|min:8" v-model="order.user.tel"></v-field>
+                 placeholder="請輸入電話" rules="required|min:8|max:10|tw-phone-number" v-model="order.user.tel"></v-field>
         <error-message name="電話" class="invalid-feedback"></error-message>
       </div>
 

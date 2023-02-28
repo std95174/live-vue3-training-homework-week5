@@ -14,6 +14,14 @@ Object.keys(VeeValidateRules).forEach(rule => {
     VeeValidate.defineRule(rule, VeeValidateRules[rule]);
 });
 
+VeeValidate.defineRule('tw-phone-number', value => {
+    const regex = /^09\d{8}$/;
+    if (!regex.test(value)) {
+        return '請輸入正確的手機號碼，應為 09 開頭'
+    }
+    return true
+});
+
 // Activate the locale
 VeeValidate.configure({
     generateMessage: VeeValidateI18n.localize('zh_TW', zh_TW),
