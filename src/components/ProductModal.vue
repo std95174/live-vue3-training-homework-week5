@@ -38,7 +38,7 @@
                   <input type="number" min="1" class="form-control" placeholder="請輸入數量"
                          aria-label="Recipient's username"
                          aria-describedby="button-addon2" v-model.number="amount">
-                  <button class="btn btn-outline-primary" type="button" id="button-addon2" @click="addProductToCart(selectedProduct, amount)">
+                  <button class="btn btn-outline-primary" type="button" id="button-addon2" @click="addProductToCart(selectedProduct, amount); modal.hide()">
                     <i class="fas fa-spinner fa-pulse" v-if="selectedProduct.isCartLoading"></i>
                     加入購物車
                   </button>
