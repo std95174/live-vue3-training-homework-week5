@@ -67,11 +67,11 @@ export default {
     }
   },
   methods: {
-    is,
     async submitOrder(order) {
       this.isLoading = true;
       try{
         await productStore().submitOrder(order);
+        this.$refs.form.resetForm()
       }catch (e) {
         console.log(e)
       } finally {
