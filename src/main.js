@@ -8,17 +8,16 @@ import VeeValidateRules, {required} from '@vee-validate/rules';
 import * as VeeValidateI18n from '@vee-validate/i18n';
 import LoadingPlugin from "vue-loading-overlay";
 import 'vue-loading-overlay/dist/css/index.css';
+import zh_TW from './assets/zh_TW.json'
 
 Object.keys(VeeValidateRules).forEach(rule => {
     VeeValidate.defineRule(rule, VeeValidateRules[rule]);
 });
 
-VeeValidateI18n.loadLocaleFromURL('./zh_TW.json').then(r => {
 // Activate the locale
-    VeeValidate.configure({
-        generateMessage: VeeValidateI18n.localize('zh_TW'),
-        validateOnInput: true, // 調整為：輸入文字時，就立即進行驗證
-    });
+VeeValidate.configure({
+    generateMessage: VeeValidateI18n.localize('zh_TW', zh_TW),
+    validateOnInput: true, // 調整為：輸入文字時，就立即進行驗證
 });
 
 const pinia = createPinia()
